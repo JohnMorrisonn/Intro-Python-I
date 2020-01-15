@@ -22,3 +22,25 @@ and does the following:
 import sys
 import calendar
 from datetime import datetime
+
+# Grab the date from the command line and turn into integers
+date = sys.argv[1:]
+
+# If no month or year is given, print current date and argument needed
+if date == []:
+    month = datetime.now().month
+    year = datetime.now().year
+    print(calendar.month(year, month))
+    print("Need to enter month as an integer")
+
+# If only the month is given, use current year
+elif len(date) == 1:
+    month = int(date[0])
+    year = datetime.now().year
+    print(calendar.month(year, month))
+
+# Else assume they used month and year
+else:
+    month = int(date[0])
+    year = int(date[1])
+    print(calendar.month(year, month))
